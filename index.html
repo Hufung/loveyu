@@ -144,32 +144,41 @@
             Every time I see you, my heart skips a beat. Your smile lights up my world, and your laughter is the melody I could listen to forever. I’ve been too shy to say it, but you mean more to me than words can ever express. You’re the spark in my days, the warmth in my nights, and the reason I believe in magic. Will you let me be yours?
         </p>
         <div class="button-container">
-            <button class="accept-button" onclick="showPage2()">Yes, I Accept</button>
-            <button class="enter-button" onclick="showPage2()">Let’s Find Out More</button>
+            <button class="accept-button" onclick="showPage2('accept')">Yes, I Accept</button>
+            <button class="enter-button" onclick="showPage2('enter')">Let’s Find Out More</button>
         </div>
         <p class="signature">
-            Forever Yours, <br> hufung
+            Forever Yours, <br> [Your Name]
         </p>
         <div class="flowers"></div>
     </div>
 
     <!-- Second Page: The Result -->
     <div id="page2" class="container">
-        <h1>A Beautiful Beginning</h1>
+        <h1 id="result-heading"></h1>
         <div class="heart"></div>
-        <p class="message">
-            Your choice has filled my heart with joy. Whether it’s a yes or a step closer, I’m thrilled to share this moment with you. Let’s make every day as magical as this one, together.
-        </p>
+        <p class="message" id="result-message"></p>
         <p class="signature">
-            Forever Yours, <br> Hufung
+            Forever Yours, <br> [Your Name]
         </p>
         <div class="flowers"></div>
     </div>
 
     <script>
-        function showPage2() {
+        function showPage2(choice) {
             document.getElementById('page1').classList.remove('active');
             document.getElementById('page2').classList.add('active');
+
+            const heading = document.getElementById('result-heading');
+            const message = document.getElementById('result-message');
+
+            if (choice === 'accept') {
+                heading.textContent = 'My Heart Is Yours!';
+                message.textContent = 'You’ve just made me the happiest person alive. I promise to cherish every moment with you, to fill your days with love and your nights with dreams. Together, we’ll write our own beautiful story.';
+            } else if (choice === 'enter') {
+                heading.textContent = 'A Step Closer';
+                message.textContent = 'I’m so glad you’re curious to know more. Let’s explore this magic together, one heartbeat at a time. You’ve already brightened my world just by being here.';
+            }
         }
     </script>
 </body>
