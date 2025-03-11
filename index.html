@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>致我最愛嘅人</title>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Serif+TC:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Add html2canvas library via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -105,7 +107,7 @@
             margin-top: 4vw;
         }
 
-        .accept-button, .enter-button {
+        .accept-button, .enter-button, .save-button {
             background: #ff6f61;
             color: white;
             border: none;
@@ -121,7 +123,7 @@
             letter-spacing: 0.1vw;
         }
 
-        .accept-button:hover, .enter-button:hover {
+        .accept-button:hover, .enter-button:hover, .save-button:hover {
             background: #e65b50;
         }
 
@@ -133,6 +135,15 @@
             margin-top: 4vw;
             font-style: italic;
             letter-spacing: 0.05vw;
+        }
+
+        footer {
+            font-family: 'Noto Serif TC', sans-serif;
+            font-size: 3vw;
+            font-weight: 300;
+            color: #b5838d;
+            margin-top: 6vw;
+            opacity: 0.8;
         }
 
         #page1, #page2 {
@@ -199,7 +210,7 @@
                 height: 8vw;
             }
 
-            .accept-button, .enter-button {
+            .accept-button, .enter-button, .save-button {
                 padding: 3vw 5vw;
                 font-size: 3.5vw;
                 min-width: 40vw;
@@ -207,6 +218,11 @@
 
             .share-text {
                 font-size: 3vw;
+            }
+
+            footer {
+                font-size: 2.5vw;
+                margin-top: 4vw;
             }
         }
     </style>
@@ -217,7 +233,7 @@
         <h1>致你，Heiyu</h1>
         <div class="heart"></div>
         <p class="message">
-            和你在一起是我從未經歷過的最有趣的事情之一。每天和你一起玩遊戲滋潤我平淡的生活。你是第一個讓我摘下面具的人。你能給我一個機會留在你身邊支持你嗎？
+            和你在一起是我從未經歷過嘅最有趣嘅事之一。每日同你一齊玩遊戲滋潤我平淡嘅人生。你係第一個令我摘下面具嘅人。你能唔能畀我一個機會留喺你身邊支持你？
         </p>
         <div class="button-container">
             <button class="accept-button" onclick="showPage2('accept')">係，我接受</button>
@@ -227,6 +243,7 @@
             永遠屬於你，<br> Hufung
         </p>
         <div class="flowers"></div>
+        <footer>© 2025 Hufung 版權所有</footer>
     </div>
 
     <!-- Second Page: The Result -->
@@ -235,10 +252,12 @@
         <div class="heart"></div>
         <p class="message" id="result-message"></p>
         <p class="share-text" id="share-text"></p>
+        <button class="save-button" onclick="savePage2()">儲存</button>
         <p class="signature">
             永遠屬於你，<br> Hufung
         </p>
         <div class="flowers"></div>
+        <footer>© 2025 Hufung 版權所有</footer>
     </div>
 
     <!-- Audio Element -->
@@ -265,7 +284,18 @@
                 shareText.textContent = '';
             }
         }
+
+        function savePage2() {
+            html2canvas(document.getElementById('page2'), {
+                backgroundColor: null, // Preserve transparency
+                scale: 2 // Higher resolution for better quality
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'Hufung_to_Heiyu_Page2.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
     </script>
-    <!-- Removed the extra Cloudflare script as it’s not needed for local use -->
 </body>
 </html>
