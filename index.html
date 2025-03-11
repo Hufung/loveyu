@@ -91,6 +91,31 @@
             opacity: 0.7;
         }
 
+        .accept-button {
+            background: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .accept-button:hover {
+            background: #e65b50;
+        }
+
+        #page1, #page2 {
+            display: none;
+        }
+
+        #page1.active, #page2.active {
+            display: block;
+        }
+
         @keyframes pulse {
             0% {
                 transform: scale(1) rotate(-45deg);
@@ -105,16 +130,38 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- First Page: The Confession -->
+    <div id="page1" class="container active">
         <h1>To You, My Sweetest Dream</h1>
         <div class="heart"></div>
         <p class="message">
-            Every time I see you, my heart skips a beat. Your smile lights up my world, and your laughter is the melody I could listen to forever. I’ve been too shy to say it, but you mean more to me than words can ever express. You’re the spark in my days, the warmth in my nights, and the reason I believe in magic. 
+            Every time I see you, my heart skips a beat. Your smile lights up my world, and your laughter is the melody I could listen to forever. I’ve been too shy to say it, but you mean more to me than words can ever express. You’re the spark in my days, the warmth in my nights, and the reason I believe in magic. Will you let me be yours?
+        </p>
+        <button class="accept-button" onclick="showPage2()">Yes, I Accept</button>
+        <p class="signature">
+            Forever Yours, <br> [Your Name]
+        </p>
+        <div class="flowers"></div>
+    </div>
+
+    <!-- Second Page: The Result -->
+    <div id="page2" class="container">
+        <h1>My Heart Is Yours!</h1>
+        <div class="heart"></div>
+        <p class="message">
+            You’ve just made me the happiest person alive. I promise to cherish every moment with you, to fill your days with love and your nights with dreams. Together, we’ll write our own beautiful story.
         </p>
         <p class="signature">
             Forever Yours, <br> [Your Name]
         </p>
         <div class="flowers"></div>
     </div>
+
+    <script>
+        function showPage2() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+        }
+    </script>
 </body>
 </html>
