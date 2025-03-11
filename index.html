@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>致我最愛嘅人</title>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Serif+TC:wght@300;400&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -34,15 +34,18 @@
             font-size: 10vw;
             color: #b5838d;
             margin-bottom: 4vw;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 3px rgba(181, 131, 141, 0.3);
+            letter-spacing: 0.1vw;
         }
 
         .message {
-            font-family: 'Noto Sans TC', sans-serif;
-            font-size: 4vw;
+            font-family: 'Noto Serif TC', sans-serif;
+            font-size: 4.2vw;
+            font-weight: 300;
             color: #6d8299;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 4vw 0;
+            letter-spacing: 0.05vw;
         }
 
         .signature {
@@ -50,6 +53,7 @@
             font-size: 6vw;
             color: #b5838d;
             margin-top: 6vw;
+            text-shadow: 1px 1px 2px rgba(181, 131, 141, 0.2);
         }
 
         .heart {
@@ -106,13 +110,15 @@
             color: white;
             border: none;
             padding: 2vw 4vw;
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Noto Serif TC', sans-serif;
             font-size: 4vw;
+            font-weight: 400;
             border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s;
             min-width: 30vw;
             box-sizing: border-box;
+            letter-spacing: 0.1vw;
         }
 
         .accept-button:hover, .enter-button:hover {
@@ -120,11 +126,13 @@
         }
 
         .share-text {
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Noto Serif TC', sans-serif;
             font-size: 3.5vw;
+            font-weight: 300;
             color: #ff6f61;
             margin-top: 4vw;
             font-style: italic;
+            letter-spacing: 0.05vw;
         }
 
         #page1, #page2 {
@@ -209,7 +217,7 @@
         <h1>致你，我最甜美嘅夢</h1>
         <div class="heart"></div>
         <p class="message">
-            和你在一起是我從未經歷過的最有趣的事情之一。每天和你一起玩遊戲滋潤我平淡的生活。你是第一個讓我摘下面具的人
+            和你在一起是我從未經歷過嘅最有趣嘅事之一。每日同你一齊玩遊戲滋潤我平淡嘅人生。你係第一個令我摘下面具嘅人。
         </p>
         <div class="button-container">
             <button class="accept-button" onclick="showPage2('accept')">係，我接受</button>
@@ -258,5 +266,6 @@
             }
         }
     </script>
+    <!-- Removed the extra Cloudflare script as it’s not needed for local use -->
 </body>
 </html>
