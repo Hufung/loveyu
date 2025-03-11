@@ -114,6 +114,14 @@
             background: #e65b50;
         }
 
+        .share-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            color: #ff6f61;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
         #page1, #page2 {
             display: none;
         }
@@ -148,7 +156,7 @@
             <button class="enter-button" onclick="showPage2('enter')">Let’s Find Out More</button>
         </div>
         <p class="signature">
-            Forever Yours, <br> [Your Name]
+            Forever Yours, <br> Hufung
         </p>
         <div class="flowers"></div>
     </div>
@@ -158,11 +166,15 @@
         <h1 id="result-heading"></h1>
         <div class="heart"></div>
         <p class="message" id="result-message"></p>
+        <p class="share-text" id="share-text"></p>
         <p class="signature">
-            Forever Yours, <br> [Your Name]
+            Forever Yours, <br> Hufung
         </p>
         <div class="flowers"></div>
     </div>
+
+    <!-- Audio Element -->
+    <audio id="accept-sound" src="https://www.soundjay.com/buttons/harp-glissando-01.mp3" preload="auto"></audio>
 
     <script>
         function showPage2(choice) {
@@ -171,13 +183,18 @@
 
             const heading = document.getElementById('result-heading');
             const message = document.getElementById('result-message');
+            const shareText = document.getElementById('share-text');
+            const audio = document.getElementById('accept-sound');
 
             if (choice === 'accept') {
                 heading.textContent = 'My Heart Is Yours!';
                 message.textContent = 'You’ve just made me the happiest person alive. I promise to cherish every moment with you, to fill your days with love and your nights with dreams. Together, we’ll write our own beautiful story.';
+                shareText.textContent = 'Share this moment: "I said yes to Hufung on March 11, 2025! 💕"';
+                audio.play(); // Play sound when "Yes, I Accept" is clicked
             } else if (choice === 'enter') {
                 heading.textContent = 'A Step Closer';
                 message.textContent = 'I’m so glad you’re curious to know more. Let’s explore this magic together, one heartbeat at a time. You’ve already brightened my world just by being here.';
+                shareText.textContent = '';
             }
         }
     </script>
