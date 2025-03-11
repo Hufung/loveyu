@@ -9,50 +9,52 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background: linear-gradient(135deg, #f5e1e6, #d8a7b1);
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
             text-align: center;
-            padding: 40px;
+            padding: 5vw;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 90vw;
+            width: 100%;
+            box-sizing: border-box;
             position: relative;
         }
 
         h1 {
             font-family: 'Parisienne', cursive;
-            font-size: 48px;
+            font-size: 10vw;
             color: #b5838d;
-            margin-bottom: 20px;
+            margin-bottom: 4vw;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .message {
             font-family: 'Noto Sans TC', sans-serif;
-            font-size: 18px;
+            font-size: 4vw;
             color: #6d8299;
             line-height: 1.6;
-            margin: 20px 0;
+            margin: 4vw 0;
         }
 
         .signature {
             font-family: 'Parisienne', cursive;
-            font-size: 24px;
+            font-size: 6vw;
             color: #b5838d;
-            margin-top: 30px;
+            margin-top: 6vw;
         }
 
         .heart {
-            width: 50px;
-            height: 50px;
+            width: 12vw;
+            height: 12vw;
             background: #ff6f61;
             position: relative;
             margin: 0 auto;
@@ -63,51 +65,54 @@
         .heart:before,
         .heart:after {
             content: '';
-            width: 50px;
-            height: 50px;
+            width: 12vw;
+            height: 12vw;
             background: #ff6f61;
             border-radius: 50%;
             position: absolute;
         }
 
         .heart:before {
-            top: -25px;
+            top: -6vw;
             left: 0;
         }
 
         .heart:after {
-            left: 25px;
+            left: 6vw;
             top: 0;
         }
 
         .flowers {
             position: absolute;
-            bottom: -50px;
+            bottom: -10vw;
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
-            height: 50px;
+            width: 40vw;
+            height: 10vw;
             background: url('https://www.transparenttextures.com/patterns/flowers.png');
             opacity: 0.7;
         }
 
         .button-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 4vw;
+            margin-top: 4vw;
         }
 
         .accept-button, .enter-button {
             background: #ff6f61;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 2vw 4vw;
             font-family: 'Noto Sans TC', sans-serif;
-            font-size: 16px;
+            font-size: 4vw;
             border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s;
+            min-width: 30vw;
+            box-sizing: border-box;
         }
 
         .accept-button:hover, .enter-button:hover {
@@ -116,9 +121,9 @@
 
         .share-text {
             font-family: 'Noto Sans TC', sans-serif;
-            font-size: 14px;
+            font-size: 3.5vw;
             color: #ff6f61;
-            margin-top: 20px;
+            margin-top: 4vw;
             font-style: italic;
         }
 
@@ -141,6 +146,61 @@
                 transform: scale(1) rotate(-45deg);
             }
         }
+
+        /* Media Queries for Mobile Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 6vw;
+                max-width: 95vw;
+            }
+
+            h1 {
+                font-size: 8vw;
+            }
+
+            .message {
+                font-size: 3.8vw;
+            }
+
+            .signature {
+                font-size: 5vw;
+            }
+
+            .heart {
+                width: 10vw;
+                height: 10vw;
+            }
+
+            .heart:before,
+            .heart:after {
+                width: 10vw;
+                height: 10vw;
+            }
+
+            .heart:before {
+                top: -5vw;
+            }
+
+            .heart:after {
+                left: 5vw;
+            }
+
+            .flowers {
+                bottom: -8vw;
+                width: 50vw;
+                height: 8vw;
+            }
+
+            .accept-button, .enter-button {
+                padding: 3vw 5vw;
+                font-size: 3.5vw;
+                min-width: 40vw;
+            }
+
+            .share-text {
+                font-size: 3vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -149,7 +209,7 @@
         <h1>致你，我最甜美嘅夢</h1>
         <div class="heart"></div>
         <p class="message">
-            每次見到你，我心都會跳一下。你嘅笑容照亮我嘅世界，你嘅笑聲係我永遠都聽唔厭嘅旋律。我一直都太害羞講出口，但你對我來說比言語所能表達嘅更加重要。你係我每日嘅火花，每夜嘅溫暖，亦係我相信魔法嘅原因。你會唔會畀我做你嘅人？
+            和你在一起是我從未經歷過的最有趣的事情之一。每天和你一起玩遊戲滋潤我平淡的生活。你是第一個讓我摘下面具的人
         </p>
         <div class="button-container">
             <button class="accept-button" onclick="showPage2('accept')">係，我接受</button>
