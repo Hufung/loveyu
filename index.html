@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To My Dearest Crush</title>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>致我最愛嘅人</title>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -36,7 +36,7 @@
         }
 
         .message {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 18px;
             color: #6d8299;
             line-height: 1.6;
@@ -103,7 +103,7 @@
             color: white;
             border: none;
             padding: 10px 20px;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 16px;
             border-radius: 10px;
             cursor: pointer;
@@ -115,7 +115,7 @@
         }
 
         .share-text {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 14px;
             color: #ff6f61;
             margin-top: 20px;
@@ -146,17 +146,17 @@
 <body>
     <!-- First Page: The Confession -->
     <div id="page1" class="container active">
-        <h1>To You, My Sweetest Dream</h1>
+        <h1>致你，我最甜美嘅夢</h1>
         <div class="heart"></div>
         <p class="message">
-            Every time I see you, my heart skips a beat. Your smile lights up my world, and your laughter is the melody I could listen to forever. I’ve been too shy to say it, but you mean more to me than words can ever express. You’re the spark in my days, the warmth in my nights, and the reason I believe in magic. Will you let me be yours?
+            每次見到你，我心都會跳一下。你嘅笑容照亮我嘅世界，你嘅笑聲係我永遠都聽唔厭嘅旋律。我一直都太害羞講出口，但你對我來說比言語所能表達嘅更加重要。你係我每日嘅火花，每夜嘅溫暖，亦係我相信魔法嘅原因。你會唔會畀我做你嘅人？
         </p>
         <div class="button-container">
-            <button class="accept-button" onclick="showPage2('accept')">Yes, I Accept</button>
-            <button class="enter-button" onclick="showPage2('enter')">Let’s Find Out More</button>
+            <button class="accept-button" onclick="showPage2('accept')">係，我接受</button>
+            <button class="enter-button" onclick="showPage2('enter')">想知多啲</button>
         </div>
         <p class="signature">
-            Forever Yours, <br> Hufung
+            永遠屬於你，<br> Hufung
         </p>
         <div class="flowers"></div>
     </div>
@@ -168,7 +168,7 @@
         <p class="message" id="result-message"></p>
         <p class="share-text" id="share-text"></p>
         <p class="signature">
-            Forever Yours, <br> Hufung
+            永遠屬於你，<br> Hufung
         </p>
         <div class="flowers"></div>
     </div>
@@ -187,13 +187,13 @@
             const audio = document.getElementById('accept-sound');
 
             if (choice === 'accept') {
-                heading.textContent = 'My Heart Is Yours!';
-                message.textContent = 'You’ve just made me the happiest person alive. I promise to cherish every moment with you, to fill your days with love and your nights with dreams. Together, we’ll write our own beautiful story.';
-                shareText.textContent = 'Share this moment: "I said yes to Hufung on March 11, 2025! 💕"';
+                heading.textContent = '我嘅心屬於你！';
+                message.textContent = '你令我成為世上最快樂嘅人。我承諾會珍惜同你每一刻，畀你嘅日子充滿愛，夜晚充滿夢想。我哋一齊會寫出屬於我哋嘅美好故事。';
+                shareText.textContent = '分享呢一刻："我喺2025年3月11日同Hufung講咗係！💕"';
                 audio.play(); // Play sound when "Yes, I Accept" is clicked
             } else if (choice === 'enter') {
-                heading.textContent = 'A Step Closer';
-                message.textContent = 'I’m so glad you’re curious to know more. Let’s explore this magic together, one heartbeat at a time. You’ve already brightened my world just by being here.';
+                heading.textContent = '更近一步';
+                message.textContent = '我好開心你想知多啲。讓我哋一齊探索呢個魔法，每一下心跳都係新嘅開始。你嘅出現已經令我嘅世界更明亮。';
                 shareText.textContent = '';
             }
         }
