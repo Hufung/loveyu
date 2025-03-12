@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>致我最愛嘅人</title>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Serif+TC:wght@300;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Serif+TC:wght@300;400&family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         body {
@@ -19,6 +19,7 @@
             position: relative;
         }
 
+        /* Subtle Sparkle Background */
         body::before {
             content: '';
             position: absolute;
@@ -26,70 +27,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.2;
             z-index: 0;
-        }
-
-        .petals {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .petal {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #f06292;
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); }
-            100% { transform: translateY(110vh) rotate(360deg); }
+            animation: twinkle 10s infinite;
         }
 
         .container {
             text-align: center;
             padding: 6vw;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            border: 1px solid rgba(255, 255, 255, 0.3);
             max-width: 90vw;
             width: 100%;
             box-sizing: border-box;
             position: relative;
-            z-index: 2;
-            overflow: visible; /* Ensure content isn’t clipped */
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 2px solid #f06292;
-            border-radius: 30px;
-            filter: blur(10px);
-            z-index: -1;
+            z-index: 1;
         }
 
         h1 {
             font-family: 'Parisienne', cursive;
             font-size: 12vw;
-            background: linear-gradient(45deg, #d81b60, #f06292);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #d81b60;
             margin-bottom: 4vw;
             text-shadow: 2px 2px 5px rgba(216, 27, 96, 0.3);
             letter-spacing: 0.2vw;
@@ -100,12 +62,11 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 4.5vw;
             font-weight: 300;
-            color: #4e342e;
+            color: #5d4037;
             line-height: 1.9;
             margin: 4vw 0;
             letter-spacing: 0.1vw;
             animation: slideUp 1.5s ease-out;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .signature {
@@ -116,7 +77,6 @@
             text-shadow: 1px 1px 3px rgba(216, 27, 96, 0.3);
         }
 
-        /* Heart Styling with Fixes */
         .heart {
             width: 14vw;
             height: 14vw;
@@ -125,8 +85,7 @@
             margin: 4vw auto;
             transform: rotate(-45deg);
             animation: heartbeat 1.5s infinite ease-in-out;
-            box-shadow: 0 0 30px rgba(240, 98, 146, 0.7);
-            z-index: 3; /* Ensure it stays above other elements */
+            box-shadow: 0 0 20px rgba(240, 98, 146, 0.5);
         }
 
         .heart:before,
@@ -137,8 +96,7 @@
             background: #f06292;
             border-radius: 50%;
             position: absolute;
-            box-shadow: 0 0 30px rgba(240, 98, 146, 0.7);
-            z-index: 3; /* Match heart’s z-index */
+            box-shadow: 0 0 20px rgba(240, 98, 146, 0.5);
         }
 
         .heart:before {
@@ -151,29 +109,16 @@
             top: 0;
         }
 
-        .heart::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: radial-gradient(circle, rgba(240,98,146,0.3) 0%, rgba(240,98,146,0) 70%);
-            animation: pulse 2s infinite;
-            z-index: 2; /* Below heart but above background */
-        }
-
         .flowers {
             position: absolute;
-            bottom: -15vw;
+            bottom: -12vw;
             left: 50%;
             transform: translateX(-50%);
-            width: 60vw;
-            height: 20vw;
+            width: 50vw;
+            height: 15vw;
             background: url('https://www.transparenttextures.com/patterns/flower.png');
-            opacity: 0.5;
+            opacity: 0.6;
             animation: sway 5s infinite ease-in-out;
-            z-index: 1;
         }
 
         .button-container {
@@ -198,24 +143,6 @@
             min-width: 35vw;
             box-shadow: 0 5px 15px rgba(240, 98, 146, 0.4);
             letter-spacing: 0.15vw;
-            position: relative;
-            overflow: hidden;
-            z-index: 3; /* Ensure buttons stay clickable */
-        }
-
-        .accept-button::before, .enter-button::before, .save-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: all 0.5s;
-        }
-
-        .accept-button:hover::before, .enter-button:hover::before, .save-button:hover::before {
-            left: 100%;
         }
 
         .accept-button:hover, .enter-button:hover, .save-button:hover {
@@ -242,7 +169,6 @@
             color: #d81b60;
             margin-top: 6vw;
             opacity: 0.7;
-            z-index: 3;
         }
 
         #page1, #page2 {
@@ -275,41 +201,72 @@
             50% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
         }
 
         /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .container { padding: 8vw; max-width: 95vw; }
-            h1 { font-size: 10vw; }
-            .message { font-size: 4vw; }
-            .signature { font-size: 6vw; }
-            .heart { width: 12vw; height: 12vw; }
-            .heart:before, .heart:after { width: 12vw; height: 12vw; }
-            .heart:before { top: -6vw; }
-            .heart:after { left: 6vw; }
-            .flowers { bottom: -12vw; width: 70vw; height: 15vw; }
-            .accept-button, .enter-button, .save-button { padding: 3vw 6vw; font-size: 3.8vw; min-width: 40vw; }
-            .share-text { font-size: 3.5vw; }
-            footer { font-size: 2.8vw; }
+            .container {
+                padding: 8vw;
+                max-width: 95vw;
+            }
+
+            h1 {
+                font-size: 10vw;
+            }
+
+            .message {
+                font-size: 4vw;
+            }
+
+            .signature {
+                font-size: 6vw;
+            }
+
+            .heart {
+                width: 12vw;
+                height: 12vw;
+            }
+
+            .heart:before,
+            .heart:after {
+                width: 12vw;
+                height: 12vw;
+            }
+
+            .heart:before {
+                top: -6vw;
+            }
+
+            .heart:after {
+                left: 6vw;
+            }
+
+            .flowers {
+                bottom: -10vw;
+                width: 60vw;
+                height: 12vw;
+            }
+
+            .accept-button, .enter-button, .save-button {
+                padding: 3vw 6vw;
+                font-size: 3.8vw;
+                min-width: 40vw;
+            }
+
+            .share-text {
+                font-size: 3.5vw;
+            }
+
+            footer {
+                font-size: 2.8vw;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="petals">
-        <div class="petal" style="left: 10%; animation-duration: 10s;"></div>
-        <div class="petal" style="left: 20%; animation-duration: 15s;"></div>
-        <div class="petal" style="left: 30%; animation-duration: 12s;"></div>
-        <div class="petal" style="left: 40%; animation-duration: 18s;"></div>
-        <div class="petal" style="left: 50%; animation-duration: 14s;"></div>
-        <div class="petal" style="left: 60%; animation-duration: 16s;"></div>
-        <div class="petal" style="left: 70%; animation-duration: 11s;"></div>
-        <div class="petal" style="left: 80%; animation-duration: 13s;"></div>
-        <div class="petal" style="left: 90%; animation-duration: 17s;"></div>
-    </div>
-
     <div id="page1" class="container active">
         <h1>致你，Heiyu</h1>
         <div class="heart"></div>
@@ -376,7 +333,5 @@
             });
         }
     </script>
-</body>
-</html>
 </body>
 </html>
