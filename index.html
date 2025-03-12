@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>致我最愛嘅人</title>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Serif+TC:wght@300;400&display=swap" rel="stylesheet">
-    <!-- Add html2canvas library via CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Noto+Serif+TC:wght@300;400&family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         body {
@@ -15,88 +14,111 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #f5e1e6, #d8a7b1);
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0, #e1bee7);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Subtle Sparkle Background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.2;
+            z-index: 0;
+            animation: twinkle 10s infinite;
         }
 
         .container {
             text-align: center;
-            padding: 5vw;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 6vw;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            border: 1px solid rgba(255, 255, 255, 0.3);
             max-width: 90vw;
             width: 100%;
             box-sizing: border-box;
             position: relative;
+            z-index: 1;
         }
 
         h1 {
             font-family: 'Parisienne', cursive;
-            font-size: 10vw;
-            color: #b5838d;
+            font-size: 12vw;
+            color: #d81b60;
             margin-bottom: 4vw;
-            text-shadow: 1px 1px 3px rgba(181, 131, 141, 0.3);
-            letter-spacing: 0.1vw;
+            text-shadow: 2px 2px 5px rgba(216, 27, 96, 0.3);
+            letter-spacing: 0.2vw;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .message {
-            font-family: 'Noto Serif TC', sans-serif;
-            font-size: 4.2vw;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5vw;
             font-weight: 300;
-            color: #6d8299;
-            line-height: 1.8;
+            color: #5d4037;
+            line-height: 1.9;
             margin: 4vw 0;
-            letter-spacing: 0.05vw;
+            letter-spacing: 0.1vw;
+            animation: slideUp 1.5s ease-out;
         }
 
         .signature {
             font-family: 'Parisienne', cursive;
-            font-size: 6vw;
-            color: #b5838d;
+            font-size: 7vw;
+            color: #d81b60;
             margin-top: 6vw;
-            text-shadow: 1px 1px 2px rgba(181, 131, 141, 0.2);
+            text-shadow: 1px 1px 3px rgba(216, 27, 96, 0.3);
         }
 
         .heart {
-            width: 12vw;
-            height: 12vw;
-            background: #ff6f61;
+            width: 14vw;
+            height: 14vw;
+            background: #f06292;
             position: relative;
-            margin: 0 auto;
+            margin: 4vw auto;
             transform: rotate(-45deg);
-            animation: pulse 1.5s infinite;
+            animation: heartbeat 1.5s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(240, 98, 146, 0.5);
         }
 
         .heart:before,
         .heart:after {
             content: '';
-            width: 12vw;
-            height: 12vw;
-            background: #ff6f61;
+            width: 14vw;
+            height: 14vw;
+            background: #f06292;
             border-radius: 50%;
             position: absolute;
+            box-shadow: 0 0 20px rgba(240, 98, 146, 0.5);
         }
 
         .heart:before {
-            top: -6vw;
+            top: -7vw;
             left: 0;
         }
 
         .heart:after {
-            left: 6vw;
+            left: 7vw;
             top: 0;
         }
 
         .flowers {
             position: absolute;
-            bottom: -10vw;
+            bottom: -12vw;
             left: 50%;
             transform: translateX(-50%);
-            width: 40vw;
-            height: 10vw;
-            background: url('https://www.transparenttextures.com/patterns/flowers.png');
-            opacity: 0.7;
+            width: 50vw;
+            height: 15vw;
+            background: url('https://www.transparenttextures.com/patterns/flower.png');
+            opacity: 0.6;
+            animation: sway 5s infinite ease-in-out;
         }
 
         .button-container {
@@ -108,42 +130,45 @@
         }
 
         .accept-button, .enter-button, .save-button {
-            background: #ff6f61;
+            background: linear-gradient(45deg, #f06292, #ec407a);
             color: white;
             border: none;
-            padding: 2vw 4vw;
+            padding: 2.5vw 5vw;
             font-family: 'Noto Serif TC', sans-serif;
-            font-size: 4vw;
+            font-size: 4.2vw;
             font-weight: 400;
-            border-radius: 10px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: background 0.3s;
-            min-width: 30vw;
-            box-sizing: border-box;
-            letter-spacing: 0.1vw;
+            transition: all 0.3s ease;
+            min-width: 35vw;
+            box-shadow: 0 5px 15px rgba(240, 98, 146, 0.4);
+            letter-spacing: 0.15vw;
         }
 
         .accept-button:hover, .enter-button:hover, .save-button:hover {
-            background: #e65b50;
+            background: linear-gradient(45deg, #ec407a, #d81b60);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(240, 98, 146, 0.6);
         }
 
         .share-text {
-            font-family: 'Noto Serif TC', sans-serif;
-            font-size: 3.5vw;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.8vw;
             font-weight: 300;
-            color: #ff6f61;
+            color: #f06292;
             margin-top: 4vw;
             font-style: italic;
-            letter-spacing: 0.05vw;
+            letter-spacing: 0.1vw;
+            animation: fadeIn 2s ease-in-out;
         }
 
         footer {
             font-family: 'Noto Serif TC', sans-serif;
             font-size: 3vw;
             font-weight: 300;
-            color: #b5838d;
+            color: #d81b60;
             margin-top: 6vw;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         #page1, #page2 {
@@ -154,81 +179,94 @@
             display: block;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1) rotate(-45deg);
-            }
-            50% {
-                transform: scale(1.1) rotate(-45deg);
-            }
-            100% {
-                transform: scale(1) rotate(-45deg);
-            }
+        /* Animations */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            20% { transform: scale(1.15) rotate(-45deg); }
+            40% { transform: scale(1.05) rotate(-45deg); }
         }
 
-        /* Media Queries for Mobile Adjustments */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
             .container {
-                padding: 6vw;
+                padding: 8vw;
                 max-width: 95vw;
             }
 
             h1 {
-                font-size: 8vw;
+                font-size: 10vw;
             }
 
             .message {
-                font-size: 3.8vw;
+                font-size: 4vw;
             }
 
             .signature {
-                font-size: 5vw;
+                font-size: 6vw;
             }
 
             .heart {
-                width: 10vw;
-                height: 10vw;
+                width: 12vw;
+                height: 12vw;
             }
 
             .heart:before,
             .heart:after {
-                width: 10vw;
-                height: 10vw;
+                width: 12vw;
+                height: 12vw;
             }
 
             .heart:before {
-                top: -5vw;
+                top: -6vw;
             }
 
             .heart:after {
-                left: 5vw;
+                left: 6vw;
             }
 
             .flowers {
-                bottom: -8vw;
-                width: 50vw;
-                height: 8vw;
+                bottom: -10vw;
+                width: 60vw;
+                height: 12vw;
             }
 
             .accept-button, .enter-button, .save-button {
-                padding: 3vw 5vw;
-                font-size: 3.5vw;
+                padding: 3vw 6vw;
+                font-size: 3.8vw;
                 min-width: 40vw;
             }
 
             .share-text {
-                font-size: 3vw;
+                font-size: 3.5vw;
             }
 
             footer {
-                font-size: 2.5vw;
-                margin-top: 4vw;
+                font-size: 2.8vw;
             }
         }
     </style>
 </head>
 <body>
-    <!-- First Page: The Confession -->
     <div id="page1" class="container active">
         <h1>致你，Heiyu</h1>
         <div class="heart"></div>
@@ -246,7 +284,6 @@
         <footer>© 2025 Hufung 版權所有</footer>
     </div>
 
-    <!-- Second Page: The Result -->
     <div id="page2" class="container">
         <h1 id="result-heading"></h1>
         <div class="heart"></div>
@@ -260,7 +297,6 @@
         <footer>© 2025 Hufung 版權所有</footer>
     </div>
 
-    <!-- Audio Element -->
     <audio id="accept-sound" src="https://www.soundjay.com/buttons/harp-glissando-01.mp3" preload="auto"></audio>
 
     <script>
@@ -277,7 +313,7 @@
                 heading.textContent = 'ヾ(≧▽≦*)o';
                 message.textContent = '你令我成為世上最快樂嘅人。我承諾會珍惜同你每一刻，畀你嘅日子充滿愛.';
                 shareText.textContent = '"我喺2025年3月13日同Hufung講咗係！💕"';
-                audio.play(); // Play sound when "Yes, I Accept" is clicked
+                audio.play();
             } else if (choice === 'enter') {
                 heading.textContent = '::>_<::';
                 message.textContent = 'Let me think of plan B';
@@ -287,8 +323,8 @@
 
         function savePage2() {
             html2canvas(document.getElementById('page2'), {
-                backgroundColor: null, // Preserve transparency
-                scale: 2 // Higher resolution for better quality
+                backgroundColor: null,
+                scale: 2
             }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = 'Hufung_to_Heiyu_Page2.png';
