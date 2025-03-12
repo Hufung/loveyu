@@ -19,7 +19,6 @@
             position: relative;
         }
 
-        /* Vignette Overlay */
         body::before {
             content: '';
             position: absolute;
@@ -31,7 +30,6 @@
             z-index: 0;
         }
 
-        /* Falling Petals */
         .petals {
             position: absolute;
             top: 0;
@@ -70,7 +68,7 @@
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            overflow: hidden;
+            overflow: visible; /* Ensure content isn’t clipped */
         }
 
         .container::before {
@@ -118,6 +116,7 @@
             text-shadow: 1px 1px 3px rgba(216, 27, 96, 0.3);
         }
 
+        /* Heart Styling with Fixes */
         .heart {
             width: 14vw;
             height: 14vw;
@@ -127,6 +126,7 @@
             transform: rotate(-45deg);
             animation: heartbeat 1.5s infinite ease-in-out;
             box-shadow: 0 0 30px rgba(240, 98, 146, 0.7);
+            z-index: 3; /* Ensure it stays above other elements */
         }
 
         .heart:before,
@@ -138,6 +138,7 @@
             border-radius: 50%;
             position: absolute;
             box-shadow: 0 0 30px rgba(240, 98, 146, 0.7);
+            z-index: 3; /* Match heart’s z-index */
         }
 
         .heart:before {
@@ -150,7 +151,6 @@
             top: 0;
         }
 
-        /* Particle Effect Around Heart */
         .heart::after {
             content: '';
             position: absolute;
@@ -160,6 +160,7 @@
             bottom: -10px;
             background: radial-gradient(circle, rgba(240,98,146,0.3) 0%, rgba(240,98,146,0) 70%);
             animation: pulse 2s infinite;
+            z-index: 2; /* Below heart but above background */
         }
 
         .flowers {
@@ -172,6 +173,7 @@
             background: url('https://www.transparenttextures.com/patterns/flower.png');
             opacity: 0.5;
             animation: sway 5s infinite ease-in-out;
+            z-index: 1;
         }
 
         .button-container {
@@ -198,6 +200,7 @@
             letter-spacing: 0.15vw;
             position: relative;
             overflow: hidden;
+            z-index: 3; /* Ensure buttons stay clickable */
         }
 
         .accept-button::before, .enter-button::before, .save-button::before {
@@ -239,6 +242,7 @@
             color: #d81b60;
             margin-top: 6vw;
             opacity: 0.7;
+            z-index: 3;
         }
 
         #page1, #page2 {
@@ -294,7 +298,6 @@
     </style>
 </head>
 <body>
-    <!-- Petal Animation -->
     <div class="petals">
         <div class="petal" style="left: 10%; animation-duration: 10s;"></div>
         <div class="petal" style="left: 20%; animation-duration: 15s;"></div>
@@ -373,5 +376,7 @@
             });
         }
     </script>
+</body>
+</html>
 </body>
 </html>
