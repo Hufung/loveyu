@@ -237,7 +237,6 @@
         </p>
         <div class="button-container">
             <button class="accept-button" onclick="showPage2('accept')">係，我接受</button>
-            <button class="enter-button" onclick="showPage2('enter')">No</button>
         </div>
         <p class="signature">
             永遠屬於你，<br> Hufung
@@ -260,8 +259,6 @@
         <footer>© 2025 Hufung 版權所有</footer>
     </div>
 
-    <!-- Audio Element -->
-    <audio id="accept-sound" src="https://www.soundjay.com/buttons/harp-glissando-01.mp3" preload="auto"></audio>
 
     <script>
         function showPage2(choice) {
@@ -278,10 +275,7 @@
                 message.textContent = '你令我成為世上最快樂嘅人。我承諾會珍惜同你每一刻，畀你嘅日子充滿愛.';
                 shareText.textContent = '"我喺2025年3月13日同Hufung講咗係！💕"';
                 audio.play(); // Play sound when "Yes, I Accept" is clicked
-            } else if (choice === 'enter') {
-                heading.textContent = '::>_<::';
-                message.textContent = 'Let me think of plan B';
-                shareText.textContent = '';
+            }
             }
         }
 
