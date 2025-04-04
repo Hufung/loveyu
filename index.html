@@ -269,11 +269,25 @@
             const message = document.getElementById('result-message');
             const shareText = document.getElementById('share-text');
             const audio = document.getElementById('accept-sound');
+            function getDayDifference(setDate) {
+                const today = new Date();
+                const pastDate = new Date(setDate);
+    
+                // Calculate difference in milliseconds
+                const diffTime = today - pastDate;
+    
+                // Convert to days
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+                return diffDays;
+            }
 
+        const myDate = '2025-01-01'; // Your set date
+        const daysDiff = getDayDifference(myDate);
             if (choice === 'accept') {
                 heading.textContent = 'ヾ(≧▽≦*)o';
                 message.textContent = '你令我成為世上最快樂嘅人。我承諾會珍惜同你每一刻，畀你嘅日子充滿愛.';
-                shareText.textContent = '"我喺2025年3月13日同Hufung講咗係！💕"';
+                shareText.textContent = 'we are together for',daysDiff,'days';
                 audio.play(); // Play sound when "Yes, I Accept" is clicked
             }
             }
